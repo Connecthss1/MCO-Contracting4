@@ -1,0 +1,387 @@
+<!DOCTYPE html> 
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>MN Provider Path Consulting</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    @keyframes gradientShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      line-height: 1.6;
+      color: #333;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(270deg, #1e40af, #2563eb, #1e40af, #2563eb);
+      background-size: 400% 400%;
+      animation: gradientShift 15s ease infinite;
+      min-height: 100vh;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1rem;
+    }
+
+    header {
+      background: rgba(255 255 255 / 0.85);
+      backdrop-filter: saturate(180%) blur(12px);
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+    }
+
+    .header-content {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      padding: 1rem 2rem;
+    }
+
+    nav {
+      display: flex;
+      gap: 2rem;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #333;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #1e40af;
+    }
+
+    .hero {
+      background: rgba(255 255 255 / 0.15);
+      backdrop-filter: saturate(180%) blur(20px);
+      border-radius: 20px;
+      box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+      color: white;
+      text-align: center;
+      padding: 8rem 2rem 6rem;
+      margin: 100px auto 80px;
+      max-width: 900px;
+      min-height: 70vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .hero h1 {
+      font-size: 3.5rem;
+      font-weight: bold;
+      margin-bottom: 1.5rem;
+      text-shadow: 0 2px 6px rgba(0,0,0,0.3);
+    }
+
+    .hero p {
+      font-size: 1.25rem;
+      margin-bottom: 2rem;
+      max-width: 650px;
+      margin-left: auto;
+      margin-right: auto;
+      opacity: 0.9;
+      text-shadow: 0 1px 4px rgba(0,0,0,0.25);
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 1rem 2rem;
+      background: #16a34a;
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: 600;
+      margin: 0.5rem;
+      transition: background 0.3s;
+      box-shadow: 0 4px 10px rgba(22, 163, 74, 0.6);
+    }
+
+    .btn:hover {
+      background: #15803d;
+      box-shadow: 0 6px 14px rgba(21, 128, 61, 0.8);
+    }
+
+    .btn-outline {
+      background: rgba(255 255 255 / 0.2);
+      border: 2px solid rgba(255 255 255 / 0.5);
+      box-shadow: none;
+    }
+
+    .btn-outline:hover {
+      background: rgba(255 255 255 / 0.3);
+    }
+
+    .about {
+      padding: 6rem 2rem;
+      background: linear-gradient(to bottom, #ffffff, #f8fafc);
+      border-radius: 16px;
+      max-width: 900px;
+      margin: 0 auto 80px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    }
+
+    .about h2 {
+      text-align: center;
+      font-size: 2.5rem;
+      margin-bottom: 2rem;
+      color: #1e40af;
+    }
+
+    .about p {
+      text-align: center;
+      font-size: 1.1rem;
+      margin-bottom: 3rem;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+      color: #666;
+    }
+
+    .services {
+      padding: 6rem 2rem;
+      background: #f1f5f9;
+      border-radius: 16px;
+      max-width: 1200px;
+      margin: 0 auto 80px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    }
+
+    .services h2 {
+      text-align: center;
+      font-size: 2.5rem;
+      margin-bottom: 3rem;
+      color: #1e40af;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .service-card {
+      background: white;
+      padding: 1.5rem;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      transition: transform 0.2s;
+    }
+
+    .service-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+    }
+
+    .service-card h3 {
+      color: #16a34a;
+      margin-bottom: 0.5rem;
+      font-size: 1.1rem;
+    }
+
+    .service-card p {
+      color: #666;
+      font-size: 0.9rem;
+    }
+
+    .contact {
+      padding: 6rem 2rem;
+      background: white;
+      border-radius: 16px;
+      max-width: 900px;
+      margin: 0 auto 80px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    }
+
+    .contact h2 {
+      text-align: center;
+      font-size: 2.5rem;
+      margin-bottom: 3rem;
+      color: #1e40af;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .contact-card {
+      background: #f8fafc;
+      padding: 2rem;
+      border-radius: 12px;
+      text-align: center;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+    }
+
+    footer {
+      background: #1f2937;
+      color: white;
+      padding: 4rem 2rem 2rem;
+      border-radius: 0 0 16px 16px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin-bottom: 2rem;
+      max-width: 1200px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .footer-section h3 {
+      margin-bottom: 1rem;
+      color: #f3f4f6;
+    }
+
+    .footer-section p, .footer-section a {
+      color: #d1d5db;
+      text-decoration: none;
+    }
+
+    .footer-section a:hover {
+      color: #16a34a;
+    }
+
+    .footer-bottom {
+      text-align: center;
+      padding-top: 2rem;
+      border-top: 1px solid #374151;
+      color: #9ca3af;
+    }
+
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 2.5rem;
+      }
+      .hero p {
+        font-size: 1.1rem;
+      }
+      nav {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-content container">
+      <nav>
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <section id="home" class="hero">
+    <div class="container">
+      <h1>MN Provider Path Consulting</h1>
+      <p>Your trusted partner for MCO contracting and MHCP enrollment in Minnesota. We turn complex healthcare administration into a streamlined, stress-free process.</p>
+      <div>
+        <a href="https://hssmnsure.as.me/schedule/63a0063f/appointment/76941503/calendar/11857205?appointmentTypeIds[]=76941503" class="btn" target="_blank">Schedule a Consultation</a>
+        <a href="tel:6517807536" class="btn btn-outline">Call Now</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="about" class="about">
+    <div class="container">
+      <h2>Why Choose MN Provider Path?</h2>
+      <p>With deep expertise in the Minnesota healthcare landscape, we offer personalized consulting services designed to help providers navigate MCO contracting and MHCP enrollment efficiently and effectively.</p>
+    </div>
+  </section>
+
+  <section id="services" class="services">
+    <div class="container">
+      <h2>Our Services</h2>
+      <div class="services-grid">
+        <div class="service-card"><h3>MCO Contracting</h3><p>Support with negotiating and maintaining MCO agreements.</p></div>
+        <div class="service-card"><h3>MHCP Enrollment</h3><p>End-to-end assistance with enrolling in Minnesota Health Care Programs.</p></div>
+        <div class="service-card"><h3>Home Care Agencies</h3><p>Support for 245D, PCA, and Waivered Services providers.</p></div>
+        <div class="service-card"><h3>Mental Health Clinics & Professionals</h3><p>Help for LPCC, LICSW, LMFT providers to streamline enrollment and billing.</p></div>
+        <div class="service-card"><h3>ARMHS / CTSS Providers</h3><p>Guidance for Adult and Children’s Rehabilitative Services.</p></div>
+        <div class="service-card"><h3>Substance Use Disorder (SUD) Providers</h3><p>Assistance for SUD treatment facilities with setup and compliance.</p></div>
+        <div class="service-card"><h3>Housing Stabilization Services</h3><p>Help navigating HSS provider enrollment and operations.</p></div>
+        <div class="service-card"><h3>Non-Emergency Medical Transportation</h3><p>NEMT providers setup, credentialing, and reimbursement support.</p></div>
+        <div class="service-card"><h3>Behavioral Health Aides</h3><p>Setup and training for BHA / technician services.</p></div>
+        <div class="service-card"><h3>Interpreters & Language Services</h3><p>Enrollment and support for language service providers.</p></div>
+        <div class="service-card"><h3>HCBS Providers</h3><p>Support for all types of Home and Community-Based Services.</p></div>
+        <div class="service-card"><h3>Adult Day Services</h3><p>Assistance with licensing and MHCP setup for adult day programs.</p></div>
+        <div class="service-card"><h3>Respite Care Providers</h3><p>Guidance for short-term care service providers.</p></div>
+        <div class="service-card"><h3>DME Suppliers</h3><p>Enrollment for durable medical equipment providers.</p></div>
+        <div class="service-card"><h3>Telehealth Mental Health Providers</h3><p>Credentialing and billing for virtual-only care providers.</p></div>
+        <div class="service-card"><h3>Case Management Providers</h3><p>Help with setup for Children’s and Adult Mental Health case management services.</p></div>
+        <div class="service-card"><h3>Community Health Workers</h3><p>Enrollment and training support for CHWs.</p></div>
+        <div class="service-card"><h3>Therapists</h3><p>Support for Occupational, Physical, and Speech Therapists.</p></div>
+        <div class="service-card"><h3>Dietitians & Nutritionists</h3><p>Guidance for MHCP credentialing and billing setup.</p></div>
+        <div class="service-card"><h3>Home Health Agencies</h3><p>Support for skilled nursing and in-home therapy providers.</p></div>
+        <div class="service-card"><h3>Recuperative Care</h3><p>Assistance with programs providing short-term recovery support.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="contact">
+    <div class="container">
+      <h2>Contact Us</h2>
+      <div class="contact-grid">
+        <div class="contact-card">
+          <h3>Phone</h3>
+          <p><a href="tel:6517807536">(651) 780-7536</a></p>
+        </div>
+        <div class="contact-card">
+          <h3>Email</h3>
+          <p><a href="mailto:mnproviderpath@gmail.com">mnproviderpath@gmail.com</a></p>
+        </div>
+        <div class="contact-card">
+          <h3>Book a Consultation</h3>
+          <p><a href="https://hssmnsure.as.me/schedule/63a0063f/appointment/76941503/calendar/11857205?appointmentTypeIds[]=76941503" target="_blank">Click here to schedule</a></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-grid container">
+      <div class="footer-section">
+        <h3>MN Provider Path Consulting</h3>
+        <p>Helping you navigate MCO contracts & MHCP enrollment with ease.</p>
+      </div>
+      <div class="footer-section">
+        <h3>Quick Links</h3>
+        <p><a href="#home">Home</a></p>
+        <p><a href="#about">About</a></p>
+        <p><a href="#services">Services</a></p>
+        <p><a href="#contact">Contact</a></p>
+      </div>
+      <div class="footer-section">
+        <h3>Contact</h3>
+        <p>Phone: (651) 780-7536</p>
+        <p>Email: mnproviderpath@gmail.com</p>
+        <p><a href="https://hssmnsure.as.me/schedule/63a0063f/appointment/76941503/calendar/11857205?appointmentTypeIds[]=76941503" target="_blank">Schedule a Consultation</a></p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      &copy; 2025 MN Provider Path Consulting. All rights reserved.
+    </div>
+  </footer>
+</body>
+</html>
